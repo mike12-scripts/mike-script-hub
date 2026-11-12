@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mike Script Hub</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#0b0912;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:22px;
+ background:#151020;
+ border-bottom:1px solid #35234f;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+.logo{font-size:23px;font-weight:bold;color:#bd8cff}
+nav a{color:#ddd;text-decoration:none;margin-left:12px;font-size:13px}
+.hero{
+ margin:22px 16px;
+ padding:35px 22px;
+ border-radius:18px;
+ background:linear-gradient(135deg,#39205f,#171127,#101827);
+}
+.hero h1{font-size:34px;margin:0 0 12px}
+.hero p{color:#c9bddc;line-height:1.6}
+.tag{color:#c49aff;font-size:12px;font-weight:bold}
+.btn{
+ display:inline-block;
+ padding:13px 19px;
+ border-radius:9px;
+ background:#8247d8;
+ color:white;
+ text-decoration:none;
+ border:0;
+ font-weight:bold;
+ cursor:pointer;
+}
+.section{padding:18px}
+.section h2{font-size:22px}
+.cards{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+ gap:13px;
+}
+.card{
+ background:#171321;
+ border:1px solid #332746;
+ border-radius:13px;
+ padding:17px;
+}
+.art{
+ height:105px;
+ border-radius:9px;
+ background:linear-gradient(135deg,#453078,#167d9b);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:38px;
+ margin-bottom:14px;
+}
+.card p{color:#aaa;font-size:13px;line-height:1.5}
+.task{
+ margin:18px 16px;
+ padding:20px;
+ background:#171321;
+ border:1px solid #49316a;
+ border-radius:15px;
+}
+.task p{color:#bbb;line-height:1.5}
+.youtube{background:#e32636}
+.locked{
+ background:#211a2d;
+ padding:15px;
+ border-radius:10px;
+ margin-top:15px;
+}
+pre{
+ background:#09080e;
+ padding:15px;
+ overflow-x:auto;
+ border-radius:9px;
+ color:#c6a1ff;
+ font-size:12px;
+ white-space:pre-wrap;
+}
+footer{
+ text-align:center;
+ padding:30px;
+ color:#888;
+ font-size:12px;
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">MIKE HUB</div>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#scripts">Scripts</a>
+  <a href="#tasks">Tasks</a>
+ </nav>
+</header>
+
+<section class="hero" id="home">
+ <div class="tag">ROBLOX DEVELOPMENT LIBRARY</div>
+ <h1>LEVEL UP YOUR GAME.</h1>
+ <p>Discover Roblox Studio scripts, useful code,
+ projects and tutorials.</p>
+ <a href="#scripts" class="btn">Explore Scripts</a>
+</section>
+
+<section class="section" id="scripts">
+ <h2>🔥 Script Library</h2>
+ <div class="cards">
+
+  <div class="card">
+   <div class="art">🏴‍☠️</div>
+   <h3>Blox Fruits</h3>
+   <p>Roblox Studio projects and code examples.</p>
+   <a href="#tasks" class="btn">View Resource</a>
+  </div>
+
+  <div class="card">
+   <div class="art">🏃</div>
+   <h3>Obby Games</h3>
+   <p>Learn to create obstacle courses.</p>
+   <a href="#tasks" class="btn">View Resource</a>
+  </div>
+
+  <div class="card">
+   <div class="art">⚔️</div>
+   <h3>Combat Games</h3>
+   <p>Learn combat systems for your own games.</p>
+   <a href="#tasks" class="btn">View Resource</a>
+  </div>
+
+  <div class="card">
+   <div class="art">💻</div>
+   <h3>Other Games</h3>
+   <p>More Roblox Studio code examples.</p>
+   <a href="#tasks" class="btn">View Resource</a>
+  </div>
+
+ </div>
+</section>
+
+<section class="task" id="tasks">
+ <div class="tag">CREATOR SUPPORT</div>
+ <h2>🔒 Support Mike!</h2>
+ <p>Subscribe to my YouTube channel to support
+ my Roblox development tutorials.</p>
+
+ <!-- Replace this URL with your YouTube channel -->
+ <a class="btn youtube"
+ href="https://www.youtube.com/"
+ target="_blank">
+ ▶ Subscribe to YouTube
+ </a>
+
+ <div class="locked">
+  <h3>🔐 Script Resources</h3>
+  <p>Subscription verification will be added
+  after connecting the YouTube API.</p>
+  <button class="btn" disabled>Unlock Resources</button>
+ </div>
+</section>
+
+<section class="section">
+ <h2>📚 Free Studio Code Example</h2>
+ <div class="card">
+  <h3>Welcome Message</h3>
+  <p>A simple Roblox Studio Lua example.</p>
+  <pre>print("Welcome to Mike Script Hub!")</pre>
+ </div>
+</section>
+
+<footer>
+ © 2026 Mike Script Hub
+<br><br>
+Made for Roblox creators.
+</footer>
+
+</body>
+  </html>
+  
