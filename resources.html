@@ -1,86 +1,10 @@
+<div class="resource-card">
+    <h2>🍌 Banana Script</h2>
+    <p>Blox Fruits - Banana Script</p>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mike Script Hub - Resources</title>
-
-<style>
-body {
-  background: #09090f;
-  color: white;
-  font-family: Arial, sans-serif;
-  padding: 25px;
-  margin: 0;
-}
-.container {
-  max-width: 650px;
-  margin: auto;
-}
-h1 {
-  color: #a970ff;
-  text-align: center;
-}
-.card {
-  background: #171323;
-  border: 1px solid #7044c7;
-  border-radius: 15px;
-  padding: 20px;
-  margin-top: 25px;
-}
-pre {
-  background: #09090f;
-  color: #c9a8ff;
-  padding: 15px;
-  border-radius: 10px;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-button {
-  width: 100%;
-  padding: 14px;
-  background: #7044c7;
-  color: white;
-  border: 0;
-  border-radius: 9px;
-  font-size: 16px;
-  font-weight: bold;
-}
-a { color: #b99aff; }
-</style>
-</head>
-
-<body>
-<div class="container">
-
-<h1>MIKE SCRIPT HUB</h1>
-<p style="text-align:center">Script Resources</p>
-
-<div class="card">
-<h2>VxezeHub</h2>
-<p>Original creator: Dex-Bear</p>
-
-<pre id="script">loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/VxezeHubLoader/refs/heads/main/MainHub.lua"))()</pre>
-
-<button onclick="copyScript()">Copy Script</button>
-
-<p>
-<a href="https://github.com/Dex-Bear/VxezeHubLoader"
-target="_blank">View Original GitHub Source</a>
-</p>
+    <a href="https://github.com/bloxfruitsnokey/Banana"
+       target="_blank"
+       class="btn">
+       View GitHub Source
+    </a>
 </div>
-
-</div>
-
-<script>
-function copyScript() {
-  const script = document.getElementById("script").textContent;
-  navigator.clipboard.writeText(script)
-    .then(() => alert("Script copied!"))
-    .catch(() => alert("Copy failed. Please select and copy the text manually."));
-}
-</script>
-
-</body>
-</html>
