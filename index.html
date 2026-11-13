@@ -4,6 +4,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,133 +13,166 @@
 <title>Mike Script Hub</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
- margin:0;
- background:#0b0912;
- color:white;
- font-family:Arial,sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-header{
- padding:22px;
- background:#151020;
- border-bottom:1px solid #35234f;
- display:flex;
- justify-content:space-between;
- align-items:center;
+body {
+  margin: 0;
+  background: #0b0912;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-.logo{font-size:23px;font-weight:bold;color:#bd8cff}
-nav a{color:#ddd;text-decoration:none;margin-left:12px;font-size:13px}
-
-.hero{
- margin:22px 16px;
- padding:35px 22px;
- border-radius:18px;
- background:linear-gradient(135deg,#39205f,#171127,#101827);
+header {
+  padding: 22px;
+  background: #151020;
+  border-bottom: 1px solid #35234f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.hero h1{font-size:34px;margin:0 0 12px}
-.hero p{color:#c9bddc;line-height:1.6}
-.tag{color:#c49aff;font-size:12px;font-weight:bold}
-
-.btn{
- display:inline-block;
- padding:13px 19px;
- border-radius:9px;
- background:#8247d8;
- color:white;
- text-decoration:none;
- border:0;
- font-weight:bold;
- cursor:pointer;
+.logo {
+  font-size: 23px;
+  font-weight: bold;
+  color: #bd8cff;
 }
 
-.btn:hover{background:#a16bea}
-
-.section{padding:18px}
-.section h2{font-size:22px}
-
-.cards{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
- gap:13px;
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  margin-left: 12px;
+  font-size: 13px;
 }
 
-.card{
- background:#171321;
- border:1px solid #332746;
- border-radius:13px;
- padding:17px;
+.hero {
+  margin: 22px 16px;
+  padding: 35px 22px;
+  border-radius: 18px;
+  background: linear-gradient(135deg,#39205f,#171127,#101827);
 }
 
-.art{
- height:105px;
- border-radius:9px;
- background:linear-gradient(135deg,#453078,#167d9b);
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:38px;
- margin-bottom:14px;
+.hero h1 {
+  font-size: 34px;
+  margin: 0 0 12px;
 }
 
-.card p{color:#aaa;font-size:13px;line-height:1.5}
-
-.task{
- margin:18px 16px;
- padding:20px;
- background:#171321;
- border:1px solid #49316a;
- border-radius:15px;
+.hero p {
+  color: #c9bddc;
+  line-height: 1.6;
 }
 
-.task p{color:#bbb;line-height:1.5}
-
-.youtube{background:#e32636}
-
-.discord{
- display:block;
- width:fit-content;
- margin-top:12px;
- background:#5865F2;
+.tag {
+  color: #c49aff;
+  font-size: 12px;
+  font-weight: bold;
 }
 
-.locked{
- background:#211a2d;
- padding:15px;
- border-radius:10px;
- margin-top:15px;
+.btn {
+  display: inline-block;
+  padding: 13px 19px;
+  border-radius: 9px;
+  background: #8247d8;
+  color: white;
+  text-decoration: none;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.resources{
- display:none;
- margin-top:18px;
- background:#171321;
- border:1px solid #8247d8;
- padding:15px;
- border-radius:12px;
+.btn:hover {
+  background: #a16bea;
 }
 
-.resources.show{display:block}
-
-pre{
- background:#09080e;
- padding:15px;
- overflow-x:auto;
- border-radius:9px;
- color:#c6a1ff;
- font-size:12px;
- white-space:pre-wrap;
+.section {
+  padding: 18px;
 }
 
-footer{
- text-align:center;
- padding:30px;
- color:#888;
- font-size:12px;
+.card {
+  background: #171321;
+  border: 1px solid #332746;
+  border-radius: 13px;
+  padding: 17px;
+  max-width: 420px;
+}
+
+.art {
+  height: 180px;
+  border-radius: 9px;
+  background: linear-gradient(135deg,#453078,#167d9b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 65px;
+  margin-bottom: 14px;
+}
+
+.card p {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.task {
+  margin: 18px 16px;
+  padding: 20px;
+  background: #171321;
+  border: 1px solid #49316a;
+  border-radius: 15px;
+}
+
+.task p {
+  color: #bbb;
+  line-height: 1.5;
+}
+
+.youtube {
+  background: #e32636;
+}
+
+.discord {
+  display: block;
+  width: fit-content;
+  margin-top: 12px;
+  background: #5865F2;
+}
+
+.locked {
+  background: #211a2d;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.resources {
+  display: none;
+  margin-top: 18px;
+  background: #171321;
+  border: 1px solid #8247d8;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.resources.show {
+  display: block;
+}
+
+pre {
+  background: #09080e;
+  padding: 15px;
+  overflow-x: auto;
+  border-radius: 9px;
+  color: #c6a1ff;
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #888;
+  font-size: 12px;
 }
 </style>
 </head>
@@ -146,126 +180,135 @@ footer{
 <body>
 
 <header>
- <div class="logo">MIKE HUB</div>
- <nav>
-  <a href="#home">Home</a>
-  <a href="#scripts">Scripts</a>
-  <a href="#tasks">Tasks</a>
- </nav>
+  <div class="logo">MIKE HUB</div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#scripts">Scripts</a>
+    <a href="#tasks">Resources</a>
+  </nav>
 </header>
 
 <section class="hero" id="home">
- <div class="tag">ROBLOX DEVELOPMENT LIBRARY</div>
- <h1>LEVEL UP YOUR GAME.</h1>
- <p>Discover Roblox Studio scripts, useful code,
- projects and tutorials.</p>
- <a href="#scripts" class="btn">Explore Scripts</a>
+  <div class="tag">ROBLOX DEVELOPMENT LIBRARY</div>
+
+  <h1>LEVEL UP YOUR GAME.</h1>
+
+  <p>
+    Discover Roblox scripts, useful code,
+    projects and tutorials.
+  </p>
+
+  <a href="#scripts" class="btn">Explore Scripts</a>
 </section>
 
 <section class="section" id="scripts">
- <h2>🔥 Script Library</h2>
 
- <div class="cards">
-
-  <div class="card">
-   <div class="art">🏴‍☠️</div>
-   <h3>Blox Fruits</h3>
-   <p>Roblox Studio projects and code examples.</p>
-   <a href="#tasks" class="btn">View Resource</a>
-  </div>
+  <h2>🔥 Script Library</h2>
 
   <div class="card">
-   <div class="art">🏃</div>
-   <h3>Obby Games</h3>
-   <p>Learn to create obstacle courses.</p>
-   <a href="#tasks" class="btn">View Resource</a>
+
+    <div class="art">🏴‍☠️</div>
+
+    <h2>Blox Fruits</h2>
+
+    <p>
+      Blox Fruits script resources and updates.
+    </p>
+
+    <a href="#tasks" class="btn">
+      View Resource
+    </a>
+
   </div>
 
-  <div class="card">
-   <div class="art">⚔️</div>
-   <h3>Combat Games</h3>
-   <p>Learn combat systems for your own games.</p>
-   <a href="#tasks" class="btn">View Resource</a>
-  </div>
-
-  <div class="card">
-   <div class="art">💻</div>
-   <h3>Other Games</h3>
-   <p>More Roblox Studio code examples.</p>
-   <a href="#tasks" class="btn">View Resource</a>
-  </div>
-
- </div>
 </section>
 
 <section class="task" id="tasks">
- <div class="tag">CREATOR SUPPORT</div>
- <h2>🔒 Support Mike!</h2>
 
- <p>Subscribe to my YouTube channel to support
- my Roblox development tutorials.</p>
+  <div class="tag">CREATOR SUPPORT</div>
 
- <a class="btn youtube"
- href="https://www.youtube.com/@MikeTheGod-n1z"
- target="_blank" rel="noopener noreferrer">
- ▶ Subscribe to YouTube
- </a>
+  <h2>🔒 Support Mike!</h2>
 
- <a class="btn discord"
- href="https://discord.gg/yb3SaSAnz"
- target="_blank" rel="noopener noreferrer">
- 💬 Join Discord Server
- </a>
+  <p>
+    Subscribe to my YouTube channel to support
+    my Roblox development tutorials.
+  </p>
 
- <div class="locked">
-  <h3>🔐 Script Resources</h3>
-  <p>Click below to reveal the available resources.</p>
+  <a class="btn youtube"
+     href="https://www.youtube.com/@MikeTheGod-n1z"
+     target="_blank"
+     rel="noopener noreferrer">
+    ▶ Subscribe to YouTube
+  </a>
 
-  <button class="btn" id="unlockBtn"
-  onclick="unlockResources()">
-   🔓 Unlock Resources
-  </button>
+  <a class="btn discord"
+     href="https://discord.gg/yb3SaSAnz"
+     target="_blank"
+     rel="noopener noreferrer">
+    💬 Join Discord Server
+  </a>
 
-  <div class="resources" id="resources">
-   <h3>🔥 Available Scripts</h3>
+  <div class="locked">
 
-   <p><b>Welcome Message</b></p>
-   <pre>print("Welcome to Mike Script Hub!")</pre>
+    <h3>🔐 Script Resources</h3>
 
-   <p>More scripts coming soon!</p>
+    <p>
+      Click below to reveal the available resources.
+    </p>
+
+    <button class="btn"
+            id="unlockBtn"
+            onclick="unlockResources()">
+      🔓 Unlock Resources
+    </button>
+
+    <div class="resources" id="resources">
+
+      <h3>🔥 Available Scripts</h3>
+
+      <h4>🏴‍☠️ Banana Script</h4>
+
+      <p>Blox Fruits Resource</p>
+
+      <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()</code></pre>
+
+      <p>
+        More Blox Fruits resources coming soon!
+      </p>
+
+    </div>
+
   </div>
- </div>
-</section>
 
-<section class="section">
- <h2>📚 Free Studio Code Example</h2>
-
- <div class="card">
-  <h3>Welcome Message</h3>
-  <p>A simple Roblox Studio Lua example.</p>
-  <pre>print("Welcome to Mike Script Hub!")</pre>
- </div>
 </section>
 
 <footer>
- © 2026 Mike Script Hub
-<br><br>
-Made for Roblox creators.
+  © 2026 Mike Script Hub
+  <br><br>
+  Made for Roblox creators.
 </footer>
 
 <script>
-function unlockResources(){
+function unlockResources() {
 
- const resources = document.getElementById("resources");
- const button = document.getElementById("unlockBtn");
+  const resources =
+    document.getElementById("resources");
 
- resources.classList.toggle("show");
+  const button =
+    document.getElementById("unlockBtn");
 
- if(resources.classList.contains("show")){
-  button.innerHTML = "🔒 Hide Resources";
- }else{
-  button.innerHTML = "🔓 Unlock Resources";
- }
+  resources.classList.toggle("show");
+
+  if (resources.classList.contains("show")) {
+
+    button.innerHTML = "🔒 Hide Resources";
+
+  } else {
+
+    button.innerHTML = "🔓 Unlock Resources";
+
+  }
 
 }
 </script>
