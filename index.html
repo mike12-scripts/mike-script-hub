@@ -1,5 +1,9 @@
 
 
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +55,8 @@ nav a{color:#ddd;text-decoration:none;margin-left:12px;font-size:13px}
  font-weight:bold;
  cursor:pointer;
 }
+
+.btn:hover{background:#a16bea}
 
 .section{padding:18px}
 .section h2{font-size:22px}
@@ -106,6 +112,17 @@ nav a{color:#ddd;text-decoration:none;margin-left:12px;font-size:13px}
  border-radius:10px;
  margin-top:15px;
 }
+
+.resources{
+ display:none;
+ margin-top:18px;
+ background:#171321;
+ border:1px solid #8247d8;
+ padding:15px;
+ border-radius:12px;
+}
+
+.resources.show{display:block}
 
 pre{
  background:#09080e;
@@ -202,10 +219,21 @@ footer{
 
  <div class="locked">
   <h3>🔐 Script Resources</h3>
-  <p>Subscription verification will be added
-  after connecting the YouTube API.</p>
+  <p>Click below to reveal the available resources.</p>
 
- <button class="btn" disabled>Unlock Resources</button>
+  <button class="btn" id="unlockBtn"
+  onclick="unlockResources()">
+   🔓 Unlock Resources
+  </button>
+
+  <div class="resources" id="resources">
+   <h3>🔥 Available Scripts</h3>
+
+   <p><b>Welcome Message</b></p>
+   <pre>print("Welcome to Mike Script Hub!")</pre>
+
+   <p>More scripts coming soon!</p>
+  </div>
  </div>
 </section>
 
@@ -224,6 +252,23 @@ footer{
 <br><br>
 Made for Roblox creators.
 </footer>
+
+<script>
+function unlockResources(){
+
+ const resources = document.getElementById("resources");
+ const button = document.getElementById("unlockBtn");
+
+ resources.classList.toggle("show");
+
+ if(resources.classList.contains("show")){
+  button.innerHTML = "🔒 Hide Resources";
+ }else{
+  button.innerHTML = "🔓 Unlock Resources";
+ }
+
+}
+</script>
 
 </body>
 </html>
