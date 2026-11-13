@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mike Script Hub</title>
+<title>Mike Script Hub - Banana</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -19,42 +19,30 @@ body {
 header {
   padding: 20px;
   background: #151020;
-  border-bottom: 1px solid #35234f;
+  border-bottom: 1px solid #49316a;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
   gap: 12px;
 }
 
 .logo {
+  color: #bd8cff;
   font-size: 23px;
   font-weight: bold;
-  color: #bd8cff;
 }
 
 nav a {
-  color: #ddd;
+  color: white;
   text-decoration: none;
   margin-left: 10px;
-  font-size: 13px;
 }
 
 .hero {
-  margin: 22px 16px;
-  padding: 35px 22px;
-  border-radius: 18px;
+  margin: 20px 15px;
+  padding: 30px 20px;
+  border-radius: 15px;
   background: linear-gradient(135deg,#39205f,#171127,#101827);
-}
-
-.hero h1 {
-  font-size: 34px;
-  margin: 12px 0;
-}
-
-.hero p, .task p, .card p {
-  color: #c9bddc;
-  line-height: 1.6;
 }
 
 .tag {
@@ -63,104 +51,86 @@ nav a {
   font-weight: bold;
 }
 
-.btn {
-  display: inline-block;
-  padding: 13px 19px;
-  border-radius: 9px;
-  background: #8247d8;
-  color: white;
-  text-decoration: none;
-  border: 0;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 14px;
-}
+h1 { font-size: 32px; }
 
-.btn:hover {
-  background: #a16bea;
+p {
+  color: #c9bddc;
+  line-height: 1.6;
 }
 
 .section {
-  padding: 18px;
-}
-
-.card {
-  background: #171321;
-  border: 1px solid #332746;
-  border-radius: 13px;
-  padding: 17px;
-  max-width: 420px;
-}
-
-.art {
-  height: 180px;
-  border-radius: 9px;
-  background: linear-gradient(135deg,#453078,#167d9b);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 65px;
-  margin-bottom: 14px;
-}
-
-.task {
-  margin: 18px 16px;
+  margin: 20px 15px;
   padding: 20px;
   background: #171321;
   border: 1px solid #49316a;
-  border-radius: 15px;
+  border-radius: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 18px;
+  border: 0;
+  border-radius: 9px;
+  background: #8247d8;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
 }
 
 .youtube { background: #e32636; }
+.discord { background: #5865F2; margin-top: 10px; }
 
-.discord {
-  display: block;
-  width: fit-content;
-  margin-top: 12px;
-  background: #5865F2;
+.task {
+  padding: 13px;
+  margin: 12px 0;
+  background: #211a2d;
+  border-radius: 9px;
 }
 
-.locked {
-  background: #211a2d;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 15px;
+.task label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.task input {
+  width: 19px;
+  height: 19px;
+  accent-color: #8247d8;
 }
 
 .resources {
   display: none;
-  margin-top: 18px;
-  background: #171321;
-  border: 1px solid #8247d8;
+  margin-top: 20px;
   padding: 15px;
+  border: 1px solid #8247d8;
   border-radius: 12px;
+  background: #211a2d;
 }
 
-.resources.show {
-  display: block;
-}
+.resources.show { display: block; }
 
 pre {
   background: #09080e;
-  padding: 15px;
-  overflow-x: auto;
-  border-radius: 9px;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
   color: #c6a1ff;
   font-size: 12px;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
 }
 
 footer {
   text-align: center;
   padding: 30px;
   color: #888;
-  font-size: 12px;
-}
-
-@media(max-width: 400px) {
-  .hero h1 { font-size: 27px; }
-  header { padding: 15px; }
 }
 </style>
 </head>
@@ -169,101 +139,80 @@ footer {
 
 <header>
   <div class="logo">MIKE HUB</div>
-
   <nav>
     <a href="#home">Home</a>
-    <a href="#scripts">Scripts</a>
     <a href="#tasks">Resources</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
   <div class="tag">ROBLOX DEVELOPMENT LIBRARY</div>
-
   <h1>LEVEL UP YOUR GAME.</h1>
-
-  <p>
-    Discover Roblox scripts, useful code,
-    projects and tutorials.
-  </p>
-
-  <a href="#scripts" class="btn">Explore Scripts</a>
+  <p>Welcome to Mike Script Hub!</p>
+  <p>Complete the support checklist to reveal the Banana resource.</p>
 </section>
 
-<section class="section" id="scripts">
-
-  <h2>🔥 Script Library</h2>
-
-  <div class="card">
-    <div class="art">🏴‍☠️</div>
-
-    <h2>Blox Fruits</h2>
-
-    <p>
-      Blox Fruits script resources and updates.
-    </p>
-
-    <a href="#tasks" class="btn">
-      View Resource
-    </a>
-  </div>
-
-</section>
-
-<section class="task" id="tasks">
+<section class="section" id="tasks">
 
   <div class="tag">CREATOR SUPPORT</div>
-
   <h2>🔒 Support Mike!</h2>
 
-  <p>
-    Subscribe to my YouTube channel to support
-    my Roblox development tutorials.
-  </p>
+  <p>Please support my channel and community:</p>
 
   <a class="btn youtube"
      href="https://www.youtube.com/@MikeTheGod-n1z"
-     target="_blank"
-     rel="noopener noreferrer">
-    ▶ Subscribe to YouTube
+     target="_blank" rel="noopener noreferrer">
+     ▶ Subscribe to YouTube
   </a>
+
+  <br>
 
   <a class="btn discord"
      href="https://discord.gg/yb3SaSAnz"
-     target="_blank"
-     rel="noopener noreferrer">
-    💬 Join Discord Server
+     target="_blank" rel="noopener noreferrer">
+     💬 Join Discord
   </a>
 
-  <div class="locked">
+  <h3>✅ Complete the checklist</h3>
 
-    <h3>🔐 Script Resources</h3>
+  <div class="task">
+    <label>
+      <input type="checkbox" class="check">
+      I subscribed to Mike's YouTube channel.
+    </label>
+  </div>
 
-    <p>
-      Click below to reveal the available resources.
-    </p>
+  <div class="task">
+    <label>
+      <input type="checkbox" class="check">
+      I liked the video.
+    </label>
+  </div>
 
-    <button class="btn"
-            type="button"
-            id="unlockBtn">
-      🔓 Unlock Resources
+  <div class="task">
+    <label>
+      <input type="checkbox" class="check">
+      I joined the Discord server.
+    </label>
+  </div>
+
+  <button class="btn" id="unlockBtn" disabled>
+    🔒 Complete all tasks first
+  </button>
+
+  <div class="resources" id="resources">
+
+    <h3>🍌 Banana Script</h3>
+    <p>Your Banana resource is ready!</p>
+
+    <pre id="scriptCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()</pre>
+
+    <button class="btn" id="copyBtn">
+      📋 Copy Script
     </button>
 
-    <div class="resources" id="resources">
+    <p id="copyStatus"></p>
 
-      <h3>🔥 Available Scripts</h3>
-
-      <h4>🏴‍☠️ Banana Script</h4>
-
-      <p>Blox Fruits Resource</p>
-
-      <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()</code></pre>
-
-      <p>
-        More Blox Fruits resources coming soon!
-      </p>
-
-    </div>
   </div>
 
 </section>
@@ -275,23 +224,41 @@ footer {
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+const checks = document.querySelectorAll(".check");
+const unlockBtn = document.getElementById("unlockBtn");
+const resources = document.getElementById("resources");
 
-  const button = document.getElementById("unlockBtn");
-  const resources = document.getElementById("resources");
+function updateButton() {
+  const allChecked = [...checks].every(check => check.checked);
 
-  button.addEventListener("click", function() {
+  unlockBtn.disabled = !allChecked;
 
-    resources.classList.toggle("show");
+  unlockBtn.textContent = allChecked
+    ? "🔓 Unlock Resources"
+    : "🔒 Complete all tasks first";
+}
 
-    if (resources.classList.contains("show")) {
-      button.textContent = "🔒 Hide Resources";
-    } else {
-      button.textContent = "🔓 Unlock Resources";
-    }
+checks.forEach(check => {
+  check.addEventListener("change", updateButton);
+});
 
-  });
+unlockBtn.addEventListener("click", () => {
+  if ([...checks].every(check => check.checked)) {
+    resources.classList.add("show");
+    unlockBtn.textContent = "🔓 Resources Unlocked";
+  }
+});
 
+document.getElementById("copyBtn").addEventListener("click", async () => {
+  const code = document.getElementById("scriptCode").textContent;
+  const status = document.getElementById("copyStatus");
+
+  try {
+    await navigator.clipboard.writeText(code);
+    status.textContent = "✅ Copied!";
+  } catch (error) {
+    status.textContent = "Copy unavailable. Please select and copy the text.";
+  }
 });
 </script>
 
