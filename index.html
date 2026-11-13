@@ -1,10 +1,4 @@
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +7,7 @@
 <title>Mike Script Hub</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -25,12 +17,14 @@ body {
 }
 
 header {
-  padding: 22px;
+  padding: 20px;
   background: #151020;
   border-bottom: 1px solid #35234f;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .logo {
@@ -42,7 +36,7 @@ header {
 nav a {
   color: #ddd;
   text-decoration: none;
-  margin-left: 12px;
+  margin-left: 10px;
   font-size: 13px;
 }
 
@@ -55,10 +49,10 @@ nav a {
 
 .hero h1 {
   font-size: 34px;
-  margin: 0 0 12px;
+  margin: 12px 0;
 }
 
-.hero p {
+.hero p, .task p, .card p {
   color: #c9bddc;
   line-height: 1.6;
 }
@@ -79,6 +73,7 @@ nav a {
   border: 0;
   font-weight: bold;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .btn:hover {
@@ -108,11 +103,6 @@ nav a {
   margin-bottom: 14px;
 }
 
-.card p {
-  color: #aaa;
-  line-height: 1.6;
-}
-
 .task {
   margin: 18px 16px;
   padding: 20px;
@@ -121,14 +111,7 @@ nav a {
   border-radius: 15px;
 }
 
-.task p {
-  color: #bbb;
-  line-height: 1.5;
-}
-
-.youtube {
-  background: #e32636;
-}
+.youtube { background: #e32636; }
 
 .discord {
   display: block;
@@ -174,6 +157,11 @@ footer {
   color: #888;
   font-size: 12px;
 }
+
+@media(max-width: 400px) {
+  .hero h1 { font-size: 27px; }
+  header { padding: 15px; }
+}
 </style>
 </head>
 
@@ -207,7 +195,6 @@ footer {
   <h2>🔥 Script Library</h2>
 
   <div class="card">
-
     <div class="art">🏴‍☠️</div>
 
     <h2>Blox Fruits</h2>
@@ -219,7 +206,6 @@ footer {
     <a href="#tasks" class="btn">
       View Resource
     </a>
-
   </div>
 
 </section>
@@ -258,8 +244,8 @@ footer {
     </p>
 
     <button class="btn"
-            id="unlockBtn"
-            onclick="unlockResources()">
+            type="button"
+            id="unlockBtn">
       🔓 Unlock Resources
     </button>
 
@@ -278,7 +264,6 @@ footer {
       </p>
 
     </div>
-
   </div>
 
 </section>
@@ -290,27 +275,24 @@ footer {
 </footer>
 
 <script>
-function unlockResources() {
+document.addEventListener("DOMContentLoaded", function() {
 
-  const resources =
-    document.getElementById("resources");
+  const button = document.getElementById("unlockBtn");
+  const resources = document.getElementById("resources");
 
-  const button =
-    document.getElementById("unlockBtn");
+  button.addEventListener("click", function() {
 
-  resources.classList.toggle("show");
+    resources.classList.toggle("show");
 
-  if (resources.classList.contains("show")) {
+    if (resources.classList.contains("show")) {
+      button.textContent = "🔒 Hide Resources";
+    } else {
+      button.textContent = "🔓 Unlock Resources";
+    }
 
-    button.innerHTML = "🔒 Hide Resources";
+  });
 
-  } else {
-
-    button.innerHTML = "🔓 Unlock Resources";
-
-  }
-
-}
+});
 </script>
 
 </body>
