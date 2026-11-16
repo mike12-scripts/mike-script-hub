@@ -203,12 +203,12 @@ footer {
   <div class="resources" id="resources">
 
     <h3 id="resourceTitle">Script Resource</h3>
-    <p id="resourceDescription">Your resource is ready!</p>
+    <p id="resourceDescription"></p>
 
     <pre id="scriptCode"></pre>
 
     <button class="btn" id="copyBtn">
-      📋 Copy Script
+      📋 Copy Resource
     </button>
 
     <p id="copyStatus"></p>
@@ -225,32 +225,25 @@ footer {
 
 <script>
 
-// SEPARATE SCRIPT RESOURCES
-
 const scripts = {
 
   banana: {
     name: "🍌 Banana Script",
-    description: "Your Banana resource is ready!",
+    description: "Your original Banana resource.",
     code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()'
   },
 
   autobounty: {
-    name: "🔥 Auto Bounty Script",
-    description: "Your Auto Bounty resource is ready!",
-    code: 'getgenv().language = "English"\nloadstring(game:HttpGet("https://rjr-loader.top/script/auto_bounty"))()'
+    name: "🔥 Banana Auto Bounty",
+    description: "Banana PvP Script Resource.",
+    code: 'Banana Auto Bounty loader code is displayed here as a resource preview.'
   }
 
 };
 
-// SELECT RESOURCE FROM URL
-
 const params = new URLSearchParams(window.location.search);
 const selectedScript = params.get("script") || "banana";
-
 const currentScript = scripts[selectedScript] || scripts.banana;
-
-// DISPLAY ONLY SELECTED SCRIPT
 
 document.title = "Mike Script Hub - " + currentScript.name;
 
@@ -266,14 +259,11 @@ document.getElementById("scriptCode").textContent =
 document.getElementById("description").textContent =
   "Complete the support checklist to reveal " + currentScript.name + ".";
 
-// UNLOCK CHECKLIST
-
 const checks = document.querySelectorAll(".check");
 const unlockBtn = document.getElementById("unlockBtn");
 const resources = document.getElementById("resources");
 
 function updateButton() {
-
   const allChecked = [...checks].every(check => check.checked);
 
   unlockBtn.disabled = !allChecked;
@@ -281,7 +271,6 @@ function updateButton() {
   unlockBtn.textContent = allChecked
     ? "🔓 Unlock Resources"
     : "🔒 Complete all tasks first";
-
 }
 
 checks.forEach(check => {
@@ -289,34 +278,22 @@ checks.forEach(check => {
 });
 
 unlockBtn.addEventListener("click", () => {
-
   if ([...checks].every(check => check.checked)) {
-
     resources.classList.add("show");
     unlockBtn.textContent = "🔓 Resources Unlocked";
-
   }
-
 });
 
-// COPY SCRIPT
-
 document.getElementById("copyBtn").addEventListener("click", async () => {
-
   const code = document.getElementById("scriptCode").textContent;
   const status = document.getElementById("copyStatus");
 
   try {
-
     await navigator.clipboard.writeText(code);
     status.textContent = "✅ Copied!";
-
   } catch (error) {
-
     status.textContent = "Copy unavailable. Please select and copy the text.";
-
   }
-
 });
 
 </script>
