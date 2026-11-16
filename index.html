@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mike Script Hub - Banana</title>
+<title>Mike Script Hub</title>
 
 <style>
 * { box-sizing: border-box; }
@@ -149,7 +149,7 @@ footer {
   <div class="tag">ROBLOX DEVELOPMENT LIBRARY</div>
   <h1>LEVEL UP YOUR GAME.</h1>
   <p>Welcome to Mike Script Hub!</p>
-  <p>Complete the support checklist to reveal the Banana resource.</p>
+  <p id="description">Complete the support checklist to reveal your resource.</p>
 </section>
 
 <section class="section" id="tasks">
@@ -165,7 +165,7 @@ footer {
      ▶ Subscribe to YouTube
   </a>
 
-  <br>
+  <br><br>
 
   <a class="btn discord"
      href="https://discord.gg/yb3SaSAnz"
@@ -202,10 +202,10 @@ footer {
 
   <div class="resources" id="resources">
 
-    <h3>🍌 Banana Script</h3>
-    <p>Your Banana resource is ready!</p>
+    <h3 id="resourceTitle">Script Resource</h3>
+    <p id="resourceDescription">Your resource is ready!</p>
 
-    <pre id="scriptCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()</pre>
+    <pre id="scriptCode"></pre>
 
     <button class="btn" id="copyBtn">
       📋 Copy Script
@@ -224,11 +224,56 @@ footer {
 </footer>
 
 <script>
+
+// SEPARATE SCRIPT RESOURCES
+
+const scripts = {
+
+  banana: {
+    name: "🍌 Banana Script",
+    description: "Your Banana resource is ready!",
+    code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()'
+  },
+
+  autobounty: {
+    name: "🔥 Auto Bounty Script",
+    description: "Your Auto Bounty resource is ready!",
+    code: 'getgenv().language = "English"\nloadstring(game:HttpGet("https://rjr-loader.top/script/auto_bounty"))()'
+  }
+
+};
+
+// SELECT RESOURCE FROM URL
+
+const params = new URLSearchParams(window.location.search);
+const selectedScript = params.get("script") || "banana";
+
+const currentScript = scripts[selectedScript] || scripts.banana;
+
+// DISPLAY ONLY SELECTED SCRIPT
+
+document.title = "Mike Script Hub - " + currentScript.name;
+
+document.getElementById("resourceTitle").textContent =
+  currentScript.name;
+
+document.getElementById("resourceDescription").textContent =
+  currentScript.description;
+
+document.getElementById("scriptCode").textContent =
+  currentScript.code;
+
+document.getElementById("description").textContent =
+  "Complete the support checklist to reveal " + currentScript.name + ".";
+
+// UNLOCK CHECKLIST
+
 const checks = document.querySelectorAll(".check");
 const unlockBtn = document.getElementById("unlockBtn");
 const resources = document.getElementById("resources");
 
 function updateButton() {
+
   const allChecked = [...checks].every(check => check.checked);
 
   unlockBtn.disabled = !allChecked;
@@ -236,6 +281,7 @@ function updateButton() {
   unlockBtn.textContent = allChecked
     ? "🔓 Unlock Resources"
     : "🔒 Complete all tasks first";
+
 }
 
 checks.forEach(check => {
@@ -243,23 +289,36 @@ checks.forEach(check => {
 });
 
 unlockBtn.addEventListener("click", () => {
+
   if ([...checks].every(check => check.checked)) {
+
     resources.classList.add("show");
     unlockBtn.textContent = "🔓 Resources Unlocked";
+
   }
+
 });
 
+// COPY SCRIPT
+
 document.getElementById("copyBtn").addEventListener("click", async () => {
+
   const code = document.getElementById("scriptCode").textContent;
   const status = document.getElementById("copyStatus");
 
   try {
+
     await navigator.clipboard.writeText(code);
     status.textContent = "✅ Copied!";
+
   } catch (error) {
+
     status.textContent = "Copy unavailable. Please select and copy the text.";
+
   }
+
 });
+
 </script>
 
 </body>
