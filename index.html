@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,7 +109,7 @@ p {
 .resources {
   display: none;
   margin-top: 20px;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #8247d8;
   border-radius: 12px;
   background: #211a2d;
@@ -238,8 +237,8 @@ const scripts = {
 
   autobounty: {
     name: "🍌 Banana Auto Bounty",
-    description: "Banana PvP resource information.",
-    code: "Auto Bounty resource preview. Add your approved resource here."
+    description: "Banana Auto Bounty PvP Resource!",
+    code: "Auto Bounty configuration preview. See the resource information here."
   }
 
 };
@@ -272,9 +271,7 @@ document.getElementById("description").textContent =
 // UNLOCK CHECKLIST
 
 const checks = document.querySelectorAll(".check");
-
 const unlockBtn = document.getElementById("unlockBtn");
-
 const resources = document.getElementById("resources");
 
 function updateButton() {
@@ -310,7 +307,6 @@ unlockBtn.addEventListener("click", () => {
 document.getElementById("copyBtn").addEventListener("click", async () => {
 
   const code = document.getElementById("scriptCode").textContent;
-
   const status = document.getElementById("copyStatus");
 
   try {
