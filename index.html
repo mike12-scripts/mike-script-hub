@@ -225,28 +225,37 @@ footer {
 
 <script>
 
+// =================================
 // SEPARATE RESOURCES
+// =================================
 
 const scripts = {
 
   banana: {
     name: "🍌 Banana Script",
     description: "Your original Banana resource is ready!",
-    code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()'
+    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()`
   },
 
- 
-autobounty: {
-  name: "🍌 Banana Auto Bounty",
-  description: "Banana Auto Bounty configuration resource.",
-  code: repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+  autobounty: {
+    name: "🍌 Banana Auto Bounty",
+    description: "Banana Auto Bounty configuration resource.",
+
+    // IMPORTANT:
+    // Lua code is inside a JavaScript template string.
+
+    code: `repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+
 getgenv().Key = ""
+
 getgenv().Setting = {
     Team = "Pirate",
+
     ["Fast Auto Click"] = {
         Enable = false,
         ["Only Break Ken"] = false,
     },
+
     ["Method Click"] = {
         ["Click Gun"] = false,
         ["Click Melee"] = true,
@@ -255,34 +264,42 @@ getgenv().Setting = {
         LowHealth = 5000,
         ["Delay Click"] = 0.3,
     },
+
     ["Race V4"] = {
         Enable = true,
     },
+
     Webhook = {
         Enabled = false,
         ["Url Webhook"] = "",
     },
+
     Misc = {
         AutoBuyRandomandStoreFruit = true,
         AutoBuySurprise = true,
     },
+
     SafeZone = {
         Enable = true,
         LowHealth = 4500,
         MaxHealth = 8000,
         ["Teleport Y"] = 1500,
     },
+
     ["Method Use Skill"] = {
         ["Use Random"] = true,
         ["Use Number"] = false,
     },
+
     ["Use random skill if player target low health"] = {
         Enabled = true,
         ["Low Health"] = 4000,
     },
+
     ["Use Portal Teleport"] = false,
     ["Target Time"] = 20,
     ["Aim Prediction"] = 0.5,
+
     ["Select Region"] = {
         Enabled = false,
         Region = {
@@ -294,27 +311,34 @@ getgenv().Setting = {
             Australia = false,
         },
     },
+
     ["Ignore Devil Fruit"] = {
         "Human-Human",
         "Portal-Portal",
     },
+
     ["Dodge Skill Player"] = true,
     ["Spam Dash"] = false,
+
     ["Equip Weapon"] = {
         Enabled = false,
+
         Melee = {
             Enabled = false,
             ["Name Weapon"] = "",
         },
+
         Sword = {
             Enabled = false,
             ["Name Weapon"] = "",
         },
+
         Gun = {
             Enabled = false,
             ["Name Weapon"] = "",
         },
     },
+
     Weapons = {
         Melee = {
             Enable = true,
@@ -324,6 +348,7 @@ getgenv().Setting = {
                 C = { Enable = true, HoldTime = 0.3, Number = 5 },
             },
         },
+
         ["Blox Fruit"] = {
             Enable = false,
             Skills = {
@@ -334,6 +359,7 @@ getgenv().Setting = {
                 F = { Enable = true, HoldTime = 0.3, Number = 8 },
             },
         },
+
         Gun = {
             Enable = true,
             Skills = {
@@ -341,6 +367,7 @@ getgenv().Setting = {
                 X = { Enable = true, HoldTime = 0.3, Number = 7 },
             },
         },
+
         Sword = {
             Enable = false,
             Skills = {
@@ -350,15 +377,17 @@ getgenv().Setting = {
         },
     },
 }
-getgenv().__BANANA_SCRIPT_ROUTE = "autobounty"
-return loadstring(game:HttpGet("https://banana-hub.xyz/loader/banana.lua"))()`
-}
 
+getgenv().__BANANA_SCRIPT_ROUTE = "autobounty"
+
+return loadstring(game:HttpGet("https://banana-hub.xyz/loader/banana.lua"))()`
   }
 
 };
 
+// =================================
 // SELECT RESOURCE FROM URL
+// =================================
 
 const params = new URLSearchParams(window.location.search);
 
@@ -366,7 +395,9 @@ const selectedScript = params.get("script") || "banana";
 
 const currentScript = scripts[selectedScript] || scripts.banana;
 
+// =================================
 // DISPLAY RESOURCE
+// =================================
 
 document.title = "Mike Script Hub - " + currentScript.name;
 
@@ -383,10 +414,14 @@ document.getElementById("description").textContent =
   "Complete the support checklist to reveal " +
   currentScript.name + ".";
 
-// UNLOCK CHECKLIST
+// =================================
+// CHECKLIST UNLOCK SYSTEM
+// =================================
 
 const checks = document.querySelectorAll(".check");
+
 const unlockBtn = document.getElementById("unlockBtn");
+
 const resources = document.getElementById("resources");
 
 function updateButton() {
@@ -401,34 +436,68 @@ function updateButton() {
 
 }
 
+// Listen for checkbox changes
+
 checks.forEach(check => {
   check.addEventListener("change", updateButton);
 });
 
+// Initial button state
+
+updateButton();
+
+// Unlock resources
+
 unlockBtn.addEventListener("click", () => {
 
-  if ([...checks].every(check => check.checked)) {
+  const allChecked = [...checks].every(check => check.checked);
 
-    resources.classList.add("show");
+  if (!allChecked) return;
 
-    unlockBtn.textContent = "🔓 Resources Unlocked";
+  resources.classList.add("show");
 
-  }
+  unlockBtn.textContent = "🔓 Resources Unlocked";
 
 });
 
+// =================================
 // COPY RESOURCE
+// =================================
 
 document.getElementById("copyBtn").addEventListener("click", async () => {
 
   const code = document.getElementById("scriptCode").textContent;
+
   const status = document.getElementById("copyStatus");
 
   try {
 
-    await navigator.clipboard.writeText(code);
+    if (navigator.clipboard && window.isSecureContext) {
 
-    status.textContent = "✅ Copied!";
+      await navigator.clipboard.writeText(code);
+
+    } else {
+
+      const textarea = document.createElement("textarea");
+
+      textarea.value = code;
+
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+
+      document.body.appendChild(textarea);
+
+      textarea.select();
+
+      const copied = document.execCommand("copy");
+
+      textarea.remove();
+
+      if (!copied) throw new Error("Copy failed");
+
+    }
+
+    status.textContent = "✅ Copied successfully!";
 
   } catch (error) {
 
