@@ -76,11 +76,11 @@ p {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+  font-size: 14px;
 }
 
-.btn:disabled {
-  opacity: .4;
-  cursor: not-allowed;
+.btn:active {
+  transform: scale(.97);
 }
 
 .youtube { background: #e32636; }
@@ -104,6 +104,22 @@ p {
   width: 19px;
   height: 19px;
   accent-color: #8247d8;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#unlockBtn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#unlockBtn.ready {
+  background: #27a66b;
+}
+
+#taskStatus {
+  font-size: 13px;
+  margin-top: 10px;
 }
 
 .resources {
@@ -125,6 +141,8 @@ pre {
   white-space: pre-wrap;
   color: #c6a1ff;
   font-size: 12px;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 footer {
@@ -196,9 +214,11 @@ footer {
     </label>
   </div>
 
-  <button class="btn" id="unlockBtn" disabled>
+  <button class="btn" id="unlockBtn" type="button">
     🔒 Complete all tasks first
   </button>
+
+  <p id="taskStatus" aria-live="polite"></p>
 
   <div class="resources" id="resources">
 
@@ -207,11 +227,11 @@ footer {
 
     <pre id="scriptCode"></pre>
 
-    <button class="btn" id="copyBtn">
+    <button class="btn" id="copyBtn" type="button">
       📋 Copy Resource
     </button>
 
-    <p id="copyStatus"></p>
+    <p id="copyStatus" aria-live="polite"></p>
 
   </div>
 
@@ -241,21 +261,14 @@ const scripts = {
     name: "🍌 Banana Auto Bounty",
     description: "Banana Auto Bounty configuration resource.",
 
-    // IMPORTANT:
-    // Lua code is inside a JavaScript template string.
-
-    code: `repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-
+    code: String.raw`repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 getgenv().Key = ""
-
 getgenv().Setting = {
     Team = "Pirate",
-
     ["Fast Auto Click"] = {
         Enable = false,
         ["Only Break Ken"] = false,
     },
-
     ["Method Click"] = {
         ["Click Gun"] = false,
         ["Click Melee"] = true,
@@ -264,42 +277,34 @@ getgenv().Setting = {
         LowHealth = 5000,
         ["Delay Click"] = 0.3,
     },
-
     ["Race V4"] = {
         Enable = true,
     },
-
     Webhook = {
         Enabled = false,
         ["Url Webhook"] = "",
     },
-
     Misc = {
         AutoBuyRandomandStoreFruit = true,
         AutoBuySurprise = true,
     },
-
     SafeZone = {
         Enable = true,
         LowHealth = 4500,
         MaxHealth = 8000,
         ["Teleport Y"] = 1500,
     },
-
     ["Method Use Skill"] = {
         ["Use Random"] = true,
         ["Use Number"] = false,
     },
-
     ["Use random skill if player target low health"] = {
         Enabled = true,
         ["Low Health"] = 4000,
     },
-
     ["Use Portal Teleport"] = false,
     ["Target Time"] = 20,
     ["Aim Prediction"] = 0.5,
-
     ["Select Region"] = {
         Enabled = false,
         Region = {
@@ -311,34 +316,27 @@ getgenv().Setting = {
             Australia = false,
         },
     },
-
     ["Ignore Devil Fruit"] = {
         "Human-Human",
         "Portal-Portal",
     },
-
     ["Dodge Skill Player"] = true,
     ["Spam Dash"] = false,
-
     ["Equip Weapon"] = {
         Enabled = false,
-
         Melee = {
             Enabled = false,
             ["Name Weapon"] = "",
         },
-
         Sword = {
             Enabled = false,
             ["Name Weapon"] = "",
         },
-
         Gun = {
             Enabled = false,
             ["Name Weapon"] = "",
         },
     },
-
     Weapons = {
         Melee = {
             Enable = true,
@@ -348,7 +346,6 @@ getgenv().Setting = {
                 C = { Enable = true, HoldTime = 0.3, Number = 5 },
             },
         },
-
         ["Blox Fruit"] = {
             Enable = false,
             Skills = {
@@ -359,7 +356,6 @@ getgenv().Setting = {
                 F = { Enable = true, HoldTime = 0.3, Number = 8 },
             },
         },
-
         Gun = {
             Enable = true,
             Skills = {
@@ -367,7 +363,6 @@ getgenv().Setting = {
                 X = { Enable = true, HoldTime = 0.3, Number = 7 },
             },
         },
-
         Sword = {
             Enable = false,
             Skills = {
@@ -377,9 +372,7 @@ getgenv().Setting = {
         },
     },
 }
-
 getgenv().__BANANA_SCRIPT_ROUTE = "autobounty"
-
 return loadstring(game:HttpGet("https://banana-hub.xyz/loader/banana.lua"))()`
   }
 
@@ -415,20 +408,21 @@ document.getElementById("description").textContent =
   currentScript.name + ".";
 
 // =================================
-// CHECKLIST UNLOCK SYSTEM
+// CHECKLIST SYSTEM
 // =================================
 
 const checks = document.querySelectorAll(".check");
-
 const unlockBtn = document.getElementById("unlockBtn");
-
 const resources = document.getElementById("resources");
+const taskStatus = document.getElementById("taskStatus");
 
 function updateButton() {
 
-  const allChecked = [...checks].every(check => check.checked);
+  const allChecked = Array.from(checks).every(
+    check => check.checked
+  );
 
-  unlockBtn.disabled = !allChecked;
+  unlockBtn.classList.toggle("ready", allChecked);
 
   unlockBtn.textContent = allChecked
     ? "🔓 Unlock Resources"
@@ -436,25 +430,31 @@ function updateButton() {
 
 }
 
-// Listen for checkbox changes
-
 checks.forEach(check => {
   check.addEventListener("change", updateButton);
 });
 
-// Initial button state
-
 updateButton();
 
-// Unlock resources
+// Button is ALWAYS clickable.
 
 unlockBtn.addEventListener("click", () => {
 
-  const allChecked = [...checks].every(check => check.checked);
+  const allChecked = Array.from(checks).every(
+    check => check.checked
+  );
 
-  if (!allChecked) return;
+  if (!allChecked) {
+
+    taskStatus.textContent =
+      "⚠️ Please check all 3 tasks first.";
+
+    return;
+  }
 
   resources.classList.add("show");
+
+  taskStatus.textContent = "✅ Resources unlocked!";
 
   unlockBtn.textContent = "🔓 Resources Unlocked";
 
@@ -467,7 +467,6 @@ unlockBtn.addEventListener("click", () => {
 document.getElementById("copyBtn").addEventListener("click", async () => {
 
   const code = document.getElementById("scriptCode").textContent;
-
   const status = document.getElementById("copyStatus");
 
   try {
@@ -481,19 +480,19 @@ document.getElementById("copyBtn").addEventListener("click", async () => {
       const textarea = document.createElement("textarea");
 
       textarea.value = code;
-
       textarea.style.position = "fixed";
       textarea.style.opacity = "0";
 
       document.body.appendChild(textarea);
-
       textarea.select();
 
       const copied = document.execCommand("copy");
 
       textarea.remove();
 
-      if (!copied) throw new Error("Copy failed");
+      if (!copied) {
+        throw new Error("Copy failed");
+      }
 
     }
 
@@ -501,7 +500,8 @@ document.getElementById("copyBtn").addEventListener("click", async () => {
 
   } catch (error) {
 
-    status.textContent = "Copy unavailable. Select and copy the text.";
+    status.textContent =
+      "Copy unavailable. Please select and copy the text.";
 
   }
 
