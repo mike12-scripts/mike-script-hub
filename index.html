@@ -1,380 +1,330 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mike Script Hub</title>
 
-<style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: #0b0912;
-  color: white;
-  font-family: Arial, sans-serif;
+<!DOCTYPE html>  <html lang="en">    <head>    
+<meta charset="UTF-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+<title>Mike Script Hub</title>  <style>    
+* { box-sizing: border-box; }    body {
+margin: 0;
+background: #0b0912;
+color: white;
+font-family: Arial, sans-serif;
 }
 
 header {
-  padding: 20px;
-  background: #151020;
-  border-bottom: 1px solid #49316a;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+padding: 20px;
+background: #151020;
+border-bottom: 1px solid #49316a;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
 }
 
 .logo {
-  color: #bd8cff;
-  font-size: 23px;
-  font-weight: bold;
+color: #bd8cff;
+font-size: 23px;
+font-weight: bold;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 10px;
+color: white;
+text-decoration: none;
+margin-left: 10px;
 }
 
 .hero {
-  margin: 20px 15px;
-  padding: 30px 20px;
-  border-radius: 15px;
-  background: linear-gradient(135deg,#39205f,#171127,#101827);
+margin: 20px 15px;
+padding: 30px 20px;
+border-radius: 15px;
+background: linear-gradient(135deg,#39205f,#171127,#101827);
 }
 
 .tag {
-  color: #c49aff;
-  font-size: 12px;
-  font-weight: bold;
+color: #c49aff;
+font-size: 12px;
+font-weight: bold;
 }
 
 h1 { font-size: 32px; }
 
 p {
-  color: #c9bddc;
-  line-height: 1.6;
+color: #c9bddc;
+line-height: 1.6;
 }
 
 .section {
-  margin: 20px 15px;
-  padding: 20px;
-  background: #171321;
-  border: 1px solid #49316a;
-  border-radius: 14px;
+margin: 20px 15px;
+padding: 20px;
+background: #171321;
+border: 1px solid #49316a;
+border-radius: 14px;
 }
 
 .btn {
-  display: inline-block;
-  padding: 13px 18px;
-  border: 0;
-  border-radius: 9px;
-  background: #8247d8;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 14px;
+display: inline-block;
+padding: 13px 18px;
+border: 0;
+border-radius: 9px;
+background: #8247d8;
+color: white;
+font-weight: bold;
+text-decoration: none;
+cursor: pointer;
+font-size: 14px;
 }
 
 .btn:active {
-  transform: scale(.97);
+transform: scale(.97);
 }
 
 .youtube { background: #e32636; }
 .discord { background: #5865F2; margin-top: 10px; }
 
 .task {
-  padding: 13px;
-  margin: 12px 0;
-  background: #211a2d;
-  border-radius: 9px;
+padding: 13px;
+margin: 12px 0;
+background: #211a2d;
+border-radius: 9px;
 }
 
 .task label {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  cursor: pointer;
+display: flex;
+gap: 10px;
+align-items: center;
+cursor: pointer;
 }
 
 .task input {
-  width: 19px;
-  height: 19px;
-  accent-color: #8247d8;
-  cursor: pointer;
-  flex-shrink: 0;
+width: 19px;
+height: 19px;
+accent-color: #8247d8;
+cursor: pointer;
+flex-shrink: 0;
 }
 
 #unlockBtn {
-  width: 100%;
-  margin-top: 10px;
+width: 100%;
+margin-top: 10px;
 }
 
 #unlockBtn.ready {
-  background: #27a66b;
+background: #27a66b;
 }
 
 #taskStatus {
-  font-size: 13px;
-  margin-top: 10px;
+font-size: 13px;
+margin-top: 10px;
 }
 
 .resources {
-  display: none;
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid #8247d8;
-  border-radius: 12px;
-  background: #211a2d;
+display: none;
+margin-top: 20px;
+padding: 20px;
+border: 1px solid #8247d8;
+border-radius: 12px;
+background: #211a2d;
 }
 
 .resources.show { display: block; }
 
 pre {
-  background: #09080e;
-  padding: 12px;
-  border-radius: 8px;
-  overflow-wrap: anywhere;
-  white-space: pre-wrap;
-  color: #c6a1ff;
-  font-size: 12px;
-  max-height: 400px;
-  overflow-y: auto;
+background: #09080e;
+padding: 12px;
+border-radius: 8px;
+overflow-wrap: anywhere;
+white-space: pre-wrap;
+color: #c6a1ff;
+font-size: 12px;
+max-height: 400px;
+overflow-y: auto;
 }
 
 footer {
-  text-align: center;
-  padding: 30px;
-  color: #888;
+text-align: center;
+padding: 30px;
+color: #888;
 }
-</style>
-</head>
+</style>  </head>  <body>  <header>
 
-<body>
+  <div class="logo">MIKE HUB</div>    
+  <nav>    
+    <a href="#home">Home</a>    
+    <a href="#tasks">Resources</a>    
+  </nav>    
+</header>  <section class="hero" id="home">    
+  <div class="tag">ROBLOX DEVELOPMENT LIBRARY</div>    
+  <h1>LEVEL UP YOUR GAME.</h1>    
+  <p>Welcome to Mike Script Hub!</p>    
+  <p id="description"></p>    
+</section>  <section class="section" id="tasks">    <div class="tag">CREATOR SUPPORT</div>    
+  <h2>🔒 Support Mike!</h2>    <p>Please support my channel and community:</p>  <a class="btn youtube"    
+href="https://www.youtube.com/@MikeTheGod-n1z"    
+target="_blank" rel="noopener noreferrer">  
+▶ Subscribe to YouTube  
+</a>  <br><br>
 
-<header>
-  <div class="logo">MIKE HUB</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#tasks">Resources</a>
-  </nav>
-</header>
+<a class="btn discord"    
+href="https://discord.gg/yb3SaSAnz"    
+target="_blank" rel="noopener noreferrer">
+💬 Join Discord
+</a>
 
-<section class="hero" id="home">
-  <div class="tag">ROBLOX DEVELOPMENT LIBRARY</div>
-  <h1>LEVEL UP YOUR GAME.</h1>
-  <p>Welcome to Mike Script Hub!</p>
-  <p id="description"></p>
-</section>
-
-<section class="section" id="tasks">
-
-  <div class="tag">CREATOR SUPPORT</div>
-  <h2>🔒 Support Mike!</h2>
-
-  <p>Please support my channel and community:</p>
-
-  <a class="btn youtube"
-     href="https://www.youtube.com/@MikeTheGod-n1z"
-     target="_blank" rel="noopener noreferrer">
-     ▶ Subscribe to YouTube
-  </a>
-
-  <br><br>
-
-  <a class="btn discord"
-     href="https://discord.gg/yb3SaSAnz"
-     target="_blank" rel="noopener noreferrer">
-     💬 Join Discord
-  </a>
-
-  <h3>✅ Complete the checklist</h3>
-
-  <div class="task">
-    <label>
-      <input type="checkbox" class="check">
-      I subscribed to Mike's YouTube channel.
-    </label>
-  </div>
-
-  <div class="task">
-    <label>
-      <input type="checkbox" class="check">
-      I liked the video.
-    </label>
-  </div>
-
-  <div class="task">
-    <label>
-      <input type="checkbox" class="check">
-      I joined the Discord server.
-    </label>
-  </div>
-
-  <button class="btn" id="unlockBtn" type="button">
-    🔒 Complete all tasks first
-  </button>
-
-  <p id="taskStatus" aria-live="polite"></p>
-
-  <div class="resources" id="resources">
-
-    <h3 id="resourceTitle"></h3>
-    <p id="resourceDescription"></p>
-
-    <pre id="scriptCode"></pre>
-
-    <button class="btn" id="copyBtn" type="button">
-      📋 Copy Resource
-    </button>
-
-    <p id="copyStatus" aria-live="polite"></p>
-
-  </div>
-
-</section>
-
-<footer>
-  © 2026 Mike Script Hub
-  <br><br>
-  Made for Roblox creators.
-</footer>
-
-<script>
-
-// =================================
+  <h3>✅ Complete the checklist</h3>    <div class="task">    
+    <label>    
+      <input type="checkbox" class="check">    
+      I subscribed to Mike's YouTube channel.    
+    </label>    
+  </div>    <div class="task">    
+    <label>    
+      <input type="checkbox" class="check">    
+      I liked the video.    
+    </label>    
+  </div>    <div class="task">    
+    <label>    
+      <input type="checkbox" class="check">    
+      I joined the Discord server.    
+    </label>    
+  </div>    <button class="btn" id="unlockBtn" type="button">    
+    🔒 Complete all tasks first    
+  </button>    <p id="taskStatus" aria-live="polite"></p>    <div class="resources" id="resources">  <h3 id="resourceTitle"></h3>    
+<p id="resourceDescription"></p>    <pre id="scriptCode"></pre>    <button class="btn" id="copyBtn" type="button">    
+  📋 Copy Resource    
+</button>    <p id="copyStatus" aria-live="polite"></p>    </div>  </section>  <footer>    
+  © 2026 Mike Script Hub    
+  <br><br>    
+  Made for Roblox creators.    
+</footer>  <script>    // =================================
 // SEPARATE RESOURCES
 // =================================
 
 const scripts = {
 
-  banana: {
-    name: "🍌 Banana Script",
-    description: "Your original Banana resource is ready!",
-    code: `loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()`
-  },
+banana: {
+name: "🍌 Banana Script",
+description: "Your original Banana resource is ready!",
+code: loadstring(game:HttpGet("https://raw.githubusercontent.com/bloxfruitsnokey/Banana/refs/heads/main/Banana/script.luau"))()
+},
 
-  autobounty: {
-    name: "🍌 Banana Auto Bounty",
-    description: "Banana Auto Bounty configuration resource.",
+autobounty: {
+name: "🍌 Banana Auto Bounty",
+description: "Banana Auto Bounty configuration resource.",
 
-    code: String.raw`repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+code: String.raw`repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+
 getgenv().Key = ""
 getgenv().Setting = {
-    Team = "Pirate",
-    ["Fast Auto Click"] = {
-        Enable = false,
-        ["Only Break Ken"] = false,
-    },
-    ["Method Click"] = {
-        ["Click Gun"] = false,
-        ["Click Melee"] = true,
-        ["Click Sword"] = false,
-        ["Click Fruit"] = false,
-        LowHealth = 5000,
-        ["Delay Click"] = 0.3,
-    },
-    ["Race V4"] = {
-        Enable = true,
-    },
-    Webhook = {
-        Enabled = false,
-        ["Url Webhook"] = "",
-    },
-    Misc = {
-        AutoBuyRandomandStoreFruit = true,
-        AutoBuySurprise = true,
-    },
-    SafeZone = {
-        Enable = true,
-        LowHealth = 4500,
-        MaxHealth = 8000,
-        ["Teleport Y"] = 1500,
-    },
-    ["Method Use Skill"] = {
-        ["Use Random"] = true,
-        ["Use Number"] = false,
-    },
-    ["Use random skill if player target low health"] = {
-        Enabled = true,
-        ["Low Health"] = 4000,
-    },
-    ["Use Portal Teleport"] = false,
-    ["Target Time"] = 20,
-    ["Aim Prediction"] = 0.5,
-    ["Select Region"] = {
-        Enabled = false,
-        Region = {
-            Singapore = true,
-            ["United States"] = false,
-            Netherlands = false,
-            Germany = false,
-            India = false,
-            Australia = false,
-        },
-    },
-    ["Ignore Devil Fruit"] = {
-        "Human-Human",
-        "Portal-Portal",
-    },
-    ["Dodge Skill Player"] = true,
-    ["Spam Dash"] = false,
-    ["Equip Weapon"] = {
-        Enabled = false,
-        Melee = {
-            Enabled = false,
-            ["Name Weapon"] = "",
-        },
-        Sword = {
-            Enabled = false,
-            ["Name Weapon"] = "",
-        },
-        Gun = {
-            Enabled = false,
-            ["Name Weapon"] = "",
-        },
-    },
-    Weapons = {
-        Melee = {
-            Enable = true,
-            Skills = {
-                Z = { Enable = true, HoldTime = 0.3, Number = 2 },
-                X = { Enable = true, HoldTime = 0.3, Number = 3 },
-                C = { Enable = true, HoldTime = 0.3, Number = 5 },
-            },
-        },
-        ["Blox Fruit"] = {
-            Enable = false,
-            Skills = {
-                Z = { Enable = true, HoldTime = 0.3, Number = 4 },
-                X = { Enable = true, HoldTime = 0.3, Number = 6 },
-                C = { Enable = true, HoldTime = 0.3, Number = 9 },
-                V = { Enable = false, HoldTime = 0.3, Number = 0 },
-                F = { Enable = true, HoldTime = 0.3, Number = 8 },
-            },
-        },
-        Gun = {
-            Enable = true,
-            Skills = {
-                Z = { Enable = true, HoldTime = 0.3, Number = 1 },
-                X = { Enable = true, HoldTime = 0.3, Number = 7 },
-            },
-        },
-        Sword = {
-            Enable = false,
-            Skills = {
-                Z = { Enable = true, HoldTime = 1.5, Number = 0 },
-                X = { Enable = true, HoldTime = 0.5, Number = 0 },
-            },
-        },
-    },
+Team = "Pirate",
+["Fast Auto Click"] = {
+Enable = false,
+["Only Break Ken"] = false,
+},
+["Method Click"] = {
+["Click Gun"] = false,
+["Click Melee"] = true,
+["Click Sword"] = false,
+["Click Fruit"] = false,
+LowHealth = 5000,
+["Delay Click"] = 0.3,
+},
+["Race V4"] = {
+Enable = true,
+},
+Webhook = {
+Enabled = false,
+["Url Webhook"] = "",
+},
+Misc = {
+AutoBuyRandomandStoreFruit = true,
+AutoBuySurprise = true,
+},
+SafeZone = {
+Enable = true,
+LowHealth = 4500,
+MaxHealth = 8000,
+["Teleport Y"] = 1500,
+},
+["Method Use Skill"] = {
+["Use Random"] = true,
+["Use Number"] = false,
+},
+["Use random skill if player target low health"] = {
+Enabled = true,
+["Low Health"] = 4000,
+},
+["Use Portal Teleport"] = false,
+["Target Time"] = 20,
+["Aim Prediction"] = 0.5,
+["Select Region"] = {
+Enabled = false,
+Region = {
+Singapore = true,
+["United States"] = false,
+Netherlands = false,
+Germany = false,
+India = false,
+Australia = false,
+},
+},
+["Ignore Devil Fruit"] = {
+"Human-Human",
+"Portal-Portal",
+},
+["Dodge Skill Player"] = true,
+["Spam Dash"] = false,
+["Equip Weapon"] = {
+Enabled = false,
+Melee = {
+Enabled = false,
+["Name Weapon"] = "",
+},
+Sword = {
+Enabled = false,
+["Name Weapon"] = "",
+},
+Gun = {
+Enabled = false,
+["Name Weapon"] = "",
+},
+},
+Weapons = {
+Melee = {
+Enable = true,
+Skills = {
+Z = { Enable = true, HoldTime = 0.3, Number = 2 },
+X = { Enable = true, HoldTime = 0.3, Number = 3 },
+C = { Enable = true, HoldTime = 0.3, Number = 5 },
+},
+},
+["Blox Fruit"] = {
+Enable = false,
+Skills = {
+Z = { Enable = true, HoldTime = 0.3, Number = 4 },
+X = { Enable = true, HoldTime = 0.3, Number = 6 },
+C = { Enable = true, HoldTime = 0.3, Number = 9 },
+V = { Enable = false, HoldTime = 0.3, Number = 0 },
+F = { Enable = true, HoldTime = 0.3, Number = 8 },
+},
+},
+Gun = {
+Enable = true,
+Skills = {
+Z = { Enable = true, HoldTime = 0.3, Number = 1 },
+X = { Enable = true, HoldTime = 0.3, Number = 7 },
+},
+},
+Sword = {
+Enable = false,
+Skills = {
+Z = { Enable = true, HoldTime = 1.5, Number = 0 },
+X = { Enable = true, HoldTime = 0.5, Number = 0 },
+},
+},
+},
 }
 getgenv().__BANANA_SCRIPT_ROUTE = "autobounty"
 return loadstring(game:HttpGet("https://banana-hub.xyz/loader/banana.lua"))()`
-  }
+}
 
 };
 
@@ -395,17 +345,17 @@ const currentScript = scripts[selectedScript] || scripts.banana;
 document.title = "Mike Script Hub - " + currentScript.name;
 
 document.getElementById("resourceTitle").textContent =
-  currentScript.name;
+currentScript.name;
 
 document.getElementById("resourceDescription").textContent =
-  currentScript.description;
+currentScript.description;
 
 document.getElementById("scriptCode").textContent =
-  currentScript.code;
+currentScript.code;
 
 document.getElementById("description").textContent =
-  "Complete the support checklist to reveal " +
-  currentScript.name + ".";
+"Complete the support checklist to reveal " +
+currentScript.name + ".";
 
 // =================================
 // CHECKLIST SYSTEM
@@ -418,20 +368,20 @@ const taskStatus = document.getElementById("taskStatus");
 
 function updateButton() {
 
-  const allChecked = Array.from(checks).every(
-    check => check.checked
-  );
+const allChecked = Array.from(checks).every(
+check => check.checked
+);
 
-  unlockBtn.classList.toggle("ready", allChecked);
+unlockBtn.classList.toggle("ready", allChecked);
 
-  unlockBtn.textContent = allChecked
-    ? "🔓 Unlock Resources"
-    : "🔒 Complete all tasks first";
+unlockBtn.textContent = allChecked
+? "🔓 Unlock Resources"
+: "🔒 Complete all tasks first";
 
 }
 
 checks.forEach(check => {
-  check.addEventListener("change", updateButton);
+check.addEventListener("change", updateButton);
 });
 
 updateButton();
@@ -440,23 +390,24 @@ updateButton();
 
 unlockBtn.addEventListener("click", () => {
 
-  const allChecked = Array.from(checks).every(
-    check => check.checked
-  );
+const allChecked = Array.from(checks).every(
+check => check.checked
+);
 
-  if (!allChecked) {
+if (!allChecked) {
 
-    taskStatus.textContent =
-      "⚠️ Please check all 3 tasks first.";
+taskStatus.textContent =    
+  "⚠️ Please check all 3 tasks first.";    
 
-    return;
-  }
+return;
 
-  resources.classList.add("show");
+}
 
-  taskStatus.textContent = "✅ Resources unlocked!";
+resources.classList.add("show");
 
-  unlockBtn.textContent = "🔓 Resources Unlocked";
+taskStatus.textContent = "✅ Resources unlocked!";
+
+unlockBtn.textContent = "🔓 Resources Unlocked";
 
 });
 
@@ -466,47 +417,47 @@ unlockBtn.addEventListener("click", () => {
 
 document.getElementById("copyBtn").addEventListener("click", async () => {
 
-  const code = document.getElementById("scriptCode").textContent;
-  const status = document.getElementById("copyStatus");
+const code = document.getElementById("scriptCode").textContent;
+const status = document.getElementById("copyStatus");
 
-  try {
+try {
 
-    if (navigator.clipboard && window.isSecureContext) {
+if (navigator.clipboard && window.isSecureContext) {    
 
-      await navigator.clipboard.writeText(code);
+  await navigator.clipboard.writeText(code);    
 
-    } else {
+} else {    
 
-      const textarea = document.createElement("textarea");
+  const textarea = document.createElement("textarea");    
 
-      textarea.value = code;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
+  textarea.value = code;    
+  textarea.style.position = "fixed";    
+  textarea.style.opacity = "0";    
 
-      document.body.appendChild(textarea);
-      textarea.select();
+  document.body.appendChild(textarea);    
+  textarea.select();    
 
-      const copied = document.execCommand("copy");
+  const copied = document.execCommand("copy");    
 
-      textarea.remove();
+  textarea.remove();    
 
-      if (!copied) {
-        throw new Error("Copy failed");
-      }
+  if (!copied) {    
+    throw new Error("Copy failed");    
+  }    
 
-    }
+}    
 
-    status.textContent = "✅ Copied successfully!";
+status.textContent = "✅ Copied successfully!";
 
-  } catch (error) {
+} catch (error) {
 
-    status.textContent =
-      "Copy unavailable. Please select and copy the text.";
+status.textContent =    
+  "Copy unavailable. Please select and copy the text.";
 
-  }
+}
 
 });
 
-</script>
+</script>  </body>
 
-</body></html>
+</html> 
